@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FaOm, FaUserCircle } from "react-icons/fa";
 import { Link } from "@reach/router";
+import ShowProfilePhoto from "../ShowProfilePhoto";
 
 class Navigation extends Component {
   render() {
@@ -39,7 +40,11 @@ class Navigation extends Component {
             )}
             {user && (
               <Link to="/profile" className="navbar-brand">
-                <FaUserCircle className="pb-1 mr-1" /> Profile{" "}
+                <ShowProfilePhoto
+                  className="pb-4 mr-1"
+                  userID={this.props.userID}
+                />{" "}
+                Profile{" "}
               </Link>
             )}
           </div>

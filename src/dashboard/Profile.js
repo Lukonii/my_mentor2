@@ -17,7 +17,6 @@ class Profile extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {}
 
   handleChange(e) {
     const itemName = e.target.name;
@@ -43,7 +42,7 @@ class Profile extends Component {
       email = this.props.profileEmail;
     }
 
-    const ref = firebase.database().ref(`profiles/${this.props.profileName}`);
+    const ref = firebase.database().ref(`profiles/${this.props.userID}`);
 
     //ako ovde stavim state uzece sadasnju vrednost
     //ako stavim props uzece uzera koji je logovan tako je namesteno
@@ -67,9 +66,6 @@ class Profile extends Component {
   render() {
     return (
       <div className="container mt-4 card text-white bg-primary mb-3 w-50">
-        <div className="pt-3 d-flex justify-content-center">
-          <ImageUpload profileName={this.props.profileName} />
-        </div>
         <form className="formgroup" onSubmit={this.handleSubmit}>
           <div className="input-group input-group-lg  p-3">
             <div className="input-group input-group-sm mb-3">
@@ -181,10 +177,14 @@ class Profile extends Component {
               </button>
             </div>
           </div>
+
           <p className="ml-2">
             * Fill in your data fields or modify existing ones.
           </p>
         </form>
+        <div className="mb-3 pt-3 d-flex justify-content-center">
+          <ImageUpload userID={this.props.userID} />
+        </div>
       </div>
     );
   }

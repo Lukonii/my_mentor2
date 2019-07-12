@@ -16,6 +16,7 @@ import CheckIn from "./CheckIn";
 import Attendees from "./Attendees";
 import About from "./About";
 import EditProfile from "./EditProfile";
+import ImageUpload from "./ImageUpload";
 
 class App extends Component {
   constructor() {
@@ -35,13 +36,12 @@ class App extends Component {
       if (user != null) {
         email = user.email;
       }
-      this.setState({ email: email });
-      console.log(email);
       if (FBUser) {
         this.setState({
           user: FBUser,
           displayName: FBUser.displayName,
-          userID: FBUser.uid
+          userID: FBUser.uid,
+          email: email
         });
 
         const meetingsRef = firebase.database().ref("meetings/" + FBUser.uid);
@@ -108,7 +108,11 @@ class App extends Component {
     return (
       <div>
         <CssBaseline />
-        <Navigation user={this.state.user} logOutUser={this.logOutUser} />
+        <Navigation
+          user={this.state.user}
+          userID={this.state.userID}
+          logOutUser={this.logOutUser}
+        />
         {this.state.user && (
           <Welcome
             userName={this.state.displayName}
@@ -135,7 +139,7 @@ class App extends Component {
           <Profile
             path="/profile"
             profileInfo={this.state.displayName}
-            profileName={this.state.userID}
+            userID={this.state.userID}
             profileEmail={this.state.email}
           />
           <EditProfile path="/editprofile" />
