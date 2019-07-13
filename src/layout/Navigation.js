@@ -9,7 +9,7 @@ class Navigation extends Component {
 
     return (
       <nav className="site-nav family-sans navbar navbar-expand bg-primary navbar-dark higher">
-        <div className="container-fluid">
+        <div className="container">
           <Link to="/" className="navbar-brand">
             <FaOm className="pb-1 mr-1" /> My Mentor
           </Link>
