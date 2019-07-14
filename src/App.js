@@ -16,7 +16,6 @@ import CheckIn from "./CheckIn";
 import Attendees from "./Attendees";
 import About from "./About";
 import EditProfile from "./EditProfile";
-import ImageUpload from "./ImageUpload";
 
 class App extends Component {
   constructor() {
@@ -106,7 +105,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="col" id="app">
         <CssBaseline />
         <Navigation
           user={this.state.user}

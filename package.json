@@ -8,6 +8,7 @@
     "@reach/router": "^1.1.1",
     "bootstrap": "^4.1.3",
     "firebase": "^5.4.2",
+    "hover-effect": "^1.0.5",
     "i": "^0.3.6",
     "npm": "^6.4.0",
     "react": "^16.4.2",

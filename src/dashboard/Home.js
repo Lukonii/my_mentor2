@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import slika2_1 from "../assets/images/slika2_1.JPG";
+import slika2_2 from "../assets/images/slika2_2.JPG";
+import slika29 from "../assets/images/slika29.jpg";
 
 class Home extends Component {
   render() {
@@ -9,55 +12,70 @@ class Home extends Component {
       fontSize: 1.4 + "em",
       fontWeight: 200
     };
-
     return (
-      <div className="container text-center">
+      <div className="container text-center pt-5">
         <div className="row justify-content-center">
-          <div className="col-10 col-md-10 col-lg-8 col-xl-7">
+          <div className="col-10" id="intro1">
             <div
               className="display-4 text-primary mt-5 mb-5 mb-2"
               style={{
                 fontSize: 2.8 + "em"
               }}
             >
-              <h1>satisfied in your communication?</h1>
+              <h1>SATISFIED IN YOUR COMMUNICATION?</h1>
             </div>
-            <h2 className="font-weight-light ">
+            <h2 className="font-weight-light">
               THIS MIGHT BE THE MOST IMPORTANT SITE OF YOUR LIFE...
             </h2>
             <br />
             <h4 className="font-weight-light text-left">Dear Friend.</h4>
+            <div className="pl-4 pr-4">
+              <p className="lead text-left" style={biggerLead}>
+                With years of working with people we have been realized that ...
+                More and more people in this world have a problem with
+                comunnication. And with all socialmedia stuff, instead of people
+                becomming more conecter, they become more and more intothem self
+                If you find yourself in this group of people. then you're in the
+                place you are It's safe to change my life, I promise you that.
+              </p>
+            </div>
+            <div className="row">
+              <div className="col-sm">
+                <p className="lead text-left" style={biggerLead}>
+                  A Brief Explanation: By using this, you can significantly
+                  improve your skills in communication in all fields so that no
+                  problem You talk to neighbors, acquaintances, colleagues, safo
+                  or a random walker on the street
+                </p>
+              </div>
+              <div className="col">
+                <img id="slika1" src={slika2_1} alt="slika2_1" />
+              </div>
+            </div>
+          </div>
+          <br />
+          <div className="col-10 mt-3 pt-3" id="intro1">
             <p className="lead text-left" style={biggerLead}>
-              With years of working with people we have been realised that ...
-              More and more people in this world have problem with
-              comunnication. And with all socialmedia stuff, instead of people
-              becomming more conecter, they become more and more intothem self
-              Ako sebe pronalazis u ovo grupi ljudi. onda si na mestu kojece ti
-              sigurno promeniti zivot, to ti obeacavam.
+              Have you ever had a blockade in saying that you wanted to tell
+              somebody? Something, but you did not know how to express yourself.
+              Did you dare to give your opinion? Were these people
+              misunderstood?{" "}
             </p>
-            <p>
-              Kratko objasnjenje: Koriscenjem ovog znacajno mozes unaprediti
-              svoje vestine u komunikaciji na svim poljima tako da bez problema
-              razgovaras sa komsijama poznanicima, saradnicima kolegama safom
-              ili slucajnim prolaznikom na ulici
+            <p className="lead text-left" style={biggerLead}>
+              In your life, your personality, person, attitudes, concord and
+              disagreeing through communication, knowing the best way to which
+              can be the expression is one bonus that helps you to open and that
+              people from your environment better understand.
             </p>
-            <p>
-              da li si ikada imao blokada u govoru da si hteo da kazes nekome
-              nesto, ali sa nisi znao kako da se izrazis. Da li si se plasio da
-              izneses svoje misljenje? Da li su te ljudi pogresno shvatili?{" "}
-            </p>
-            <p>
-              U zivotu ti svoju licnost, personu, stavove, slaganje i
-              nesuglasice izrazavas kroz komunikaciju, znati najbolji nacin na
-              koji mozes da se izraz je jedan bonus koji ti pomaze da se otvoris
-              i da te ljudi iz tvog okruzenja bolje shvate.
-            </p>
-            <p>
+            <div className="col">
+              <img id="slika1" src={slika29} alt="slika29" />
+            </div>
+            <p className="lead text-left" style={biggerLead}>
               For now let me tell you, no matter what your motivations might be:
               If there's just ONE thing I learned not only in SELF DEVELOPMENT
               but also in BUSINESS, then it's THIS…
             </p>
-            <p>
+            <p className="lead text-left" style={biggerLead}>
               YOU HAVE THE POWER TO CHANGE YOUR LIFE. You've probably seen it.
               And you've also probably done it: 1. You picked one area in your
               life. 2. You realized what your current situation in that area is.
@@ -72,16 +90,18 @@ class Home extends Component {
               what area of your life it is, important is to claim the power to
               change your life.
             </p>
-            <p>
+            <p className="lead text-left" style={biggerLead}>
               komunikacijski tipovi, ovde cu u zavisnosti od dana u nedelji da
               menjam tip za taj dan
             </p>
-            <p>
+            <p className="lead text-left" style={biggerLead}>
               how to become better in comunication, cekiraj listu nasih mentora,
               za sada je ona mala a li probrana uskoro cemo je prosiriti
             </p>
-            <p>ovde treba da se napise sta je poenta i kako funkcionise sajt</p>
-            <p>
+            <p className="lead text-left" style={biggerLead}>
+              ovde treba da se napise sta je poenta i kako funkcionise sajt
+            </p>
+            <p className="lead text-left" style={biggerLead}>
               sta je neophodno da bi se koristio ovaj sajt WHO IS THE MENTORING
               PROGRAM FOR? Here’s the necessary CRITERIA for acceptance into the
               mentoring program with Max: Outside the box thinkers: This is for
@@ -97,7 +117,7 @@ class Home extends Component {
               happens to you, there's at least 80% of things, thoughts and
               actions you can CONTROL.
             </p>
-            <p>
+            <p className="lead text-left" style={biggerLead}>
               What can the mentoring program help you with? Stop doing what you
               hate: If you currently feel stuck in a 9-to-5-job that you don't
               enjoy, it's our primary goal to get you to be able to quit that
@@ -132,6 +152,12 @@ class Home extends Component {
             )}
           </div>{" "}
           {/* columns */}
+        </div>
+        <div className="row">
+          <div className="col">
+            ovo treba da bude celom
+            duzinommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+          </div>
         </div>
       </div>
     );
