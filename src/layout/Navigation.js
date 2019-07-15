@@ -9,7 +9,7 @@ class Navigation extends Component {
     const { user, logOutUser } = this.props;
 
     return (
-      <nav className="fixed-top navbar navbar-expand bg-primary navbar-dark bg-dark">
+      <navbar className="navbar navbar-expand bg-primary navbar-dark bg-dark">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
@@ -17,7 +17,7 @@ class Navigation extends Component {
               src={mentor_logo}
               alt="logo"
               height="30px"
-              width="30px"
+              width="25px"
             />
             My Mentor
           </Link>
@@ -57,7 +57,7 @@ class Navigation extends Component {
             )}
           </div>
         </div>
-      </nav>
+      </navbar>
     );
   }
 }

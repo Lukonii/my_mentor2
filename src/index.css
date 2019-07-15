@@ -8,6 +8,7 @@ nav-item {
   line-height: 110%;
 }
 .navbar {
+  z-index: 1;
   -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -31,7 +32,21 @@ nav-item {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 #intro1 {
-  background: rgb(255, 255, 255, 0.8);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(255, 255, 255, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("./assets/images/pic2.jpg") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: left bottom;
+}
+#title1 {
+  padding-top: 315px;
 }
 #slika1 {
   border-radius: 0%;

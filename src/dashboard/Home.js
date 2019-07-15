@@ -13,18 +13,17 @@ class Home extends Component {
       fontWeight: 200
     };
     return (
-      <div className="container text-center pt-5">
+      <div className="container-fluid text-center">
         <div className="row justify-content-center">
-          <div className="col-10" id="intro1">
-            <div
-              className="display-4 text-primary mt-5 mb-5 mb-2"
-              style={{
-                fontSize: 2.8 + "em"
-              }}
-            >
-              <h1>SATISFIED IN YOUR COMMUNICATION?</h1>
+          <div className="container-fluid" id="intro1">
+            <div className="align-middle">
+              <h1 className="" id="title1">
+                SATISFIED IN YOUR COMMUNICATION?
+              </h1>
             </div>
-            <h2 className="font-weight-light">
+          </div>
+          <div className="col-10" id="intro1">
+            <h2 className="font-weight-light ">
               THIS MIGHT BE THE MOST IMPORTANT SITE OF YOUR LIFE...
             </h2>
             <br />

@@ -6,7 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import Home from "./dashboard/Home";
 import Dashboard from "./dashboard/Dashboard";
-import Welcome from "./dashboard/Welcome";
 import Profile from "./dashboard/Profile";
 import Navigation from "./layout/Navigation";
 import Login from "./auth/Login";
@@ -105,44 +104,40 @@ class App extends Component {
 
   render() {
     return (
-      <div className="col" id="app">
+      <div id="app">
         <CssBaseline />
         <Navigation
           user={this.state.user}
           userID={this.state.userID}
           logOutUser={this.logOutUser}
         />
-        {this.state.user && (
-          <Welcome
-            userName={this.state.displayName}
-            logOutUser={this.logOutUser}
-          />
-        )}
-        <Router>
-          <Home path="/" user={this.state.user} />
-          <Login path="/login" />
-          <Dashboard path="/dashboard" profileName={this.state.userID} />
-          <Meetings
-            path="/meetings"
-            meetings={this.state.meetings}
-            addMeeting={this.addMeeting}
-            userID={this.state.userID}
-          />
-          <Attendees
-            path="/attendees/:userID/:meetingID"
-            adminUser={this.state.userID}
-          />
-          <CheckIn path="/checkin/:userID/:meetingID" />
-          <Register path="/register" registerUser={this.registerUser} />
-          <About path="/about" />
-          <Profile
-            path="/profile"
-            profileInfo={this.state.displayName}
-            userID={this.state.userID}
-            profileEmail={this.state.email}
-          />
-          <EditProfile path="/editprofile" />
-        </Router>
+        <div className="">
+          <Router>
+            <Home path="/" user={this.state.user} />
+            <Login path="/login" />
+            <Dashboard path="/dashboard" profileName={this.state.userID} />
+            <Meetings
+              path="/meetings"
+              meetings={this.state.meetings}
+              addMeeting={this.addMeeting}
+              userID={this.state.userID}
+            />
+            <Attendees
+              path="/attendees/:userID/:meetingID"
+              adminUser={this.state.userID}
+            />
+            <CheckIn path="/checkin/:userID/:meetingID" />
+            <Register path="/register" registerUser={this.registerUser} />
+            <About path="/about" />
+            <Profile
+              path="/profile"
+              profileInfo={this.state.displayName}
+              userID={this.state.userID}
+              profileEmail={this.state.email}
+            />
+            <EditProfile path="/editprofile" />
+          </Router>
+        </div>
       </div>
     );
   }
