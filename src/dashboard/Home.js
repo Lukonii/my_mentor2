@@ -15,11 +15,21 @@ class Home extends Component {
     return (
       <div className="container-fluid text-center">
         <div className="row justify-content-center">
-          <div className="container-fluid" id="intro1">
-            <div className="align-middle">
-              <h1 className="" id="title1">
+          <div
+            className="container-fluid align-items-center row justify-content-center"
+            id="intro1"
+          >
+            <div className="" id="intro2">
+              <h1 className="pt-2" id="title1">
                 SATISFIED IN YOUR COMMUNICATION?
               </h1>
+              <h4>Your are on the right place to improve it!</h4>
+              <div className="pb-3">
+                <button className="btn btn-info">how to use</button>{" "}
+                <Link to="/mentors" className="btn btn-primary">
+                  Find Mentor
+                </Link>
+              </div>
             </div>
           </div>
           <div className="col-10" id="intro1">

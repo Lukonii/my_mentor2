@@ -15,6 +15,7 @@ import CheckIn from "./CheckIn";
 import Attendees from "./Attendees";
 import About from "./About";
 import EditProfile from "./EditProfile";
+import Mentors from "./dashboard/Mentors";
 
 class App extends Component {
   constructor() {
@@ -136,6 +137,7 @@ class App extends Component {
               profileEmail={this.state.email}
             />
             <EditProfile path="/editprofile" />
+            <Mentors path="/mentors" />
           </Router>
         </div>
       </div>

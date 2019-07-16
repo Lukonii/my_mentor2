@@ -59,7 +59,7 @@ class ImageUpload extends Component {
     ref
       .getDownloadURL()
       .then(url => {
-        console.log("Evo link");
+        //console.log("Evo link");
         this.setState({
           src: url
         });

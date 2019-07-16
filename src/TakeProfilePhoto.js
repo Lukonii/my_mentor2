@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import firebase from "./Firebase";
 import AvatarPhoto from "./assets/images/avatarMan.jpg";
 
-class ShowProfilePhoto extends Component {
+class TakeProfilePhoto extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,13 +31,13 @@ class ShowProfilePhoto extends Component {
     return (
       <img
         src={this.state.src}
-        alt="Avatar"
-        height="30"
-        width="30"
-        style={{ borderRadius: "50px" }}
+        alt="Profile"
+        height="150"
+        width="150"
+        style={{ borderRadius: "50%", margin: "auto", paddingTop: "5px" }}
       />
     );
   }
 }
 
-export default ShowProfilePhoto;
+export default TakeProfilePhoto;

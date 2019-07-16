@@ -9,7 +9,7 @@ class Navigation extends Component {
     const { user, logOutUser } = this.props;
 
     return (
-      <navbar className="navbar navbar-expand bg-primary navbar-dark bg-dark">
+      <navbar className="navbar navbar-expand bg-primary navbar-dark ">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
