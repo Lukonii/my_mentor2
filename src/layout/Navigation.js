@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import ShowProfilePhoto from "../ShowProfilePhoto";
 import mentor_logo from "../assets/images/mentor_logo.png";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 
 class Navigation extends Component {
   render() {
@@ -28,7 +29,9 @@ class Navigation extends Component {
             )}
             {!user && (
               <Link className="nav-item nav-link" to="/login">
-                <button className="btn btn-info">log in</button>
+                <button className="btn btn-info">
+                  <FiLogIn /> log in
+                </button>
               </Link>
             )}
             {!user && (
@@ -42,7 +45,9 @@ class Navigation extends Component {
                 to="/login"
                 onClick={e => logOutUser(e)}
               >
-                <button className="btn btn-info">log out</button>
+                <button className="btn btn-info">
+                  <FiLogOut /> log out
+                </button>
               </Link>
             )}
             {user && (
