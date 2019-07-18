@@ -38,7 +38,7 @@ nav-item {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 #intro1 {
-  background-image: url("./assets/images/pic1.jpg") !important;
+  //background-image: url("./assets/images/pic1.jpg") !important;
   background-repeat: no-repeat;
   background-size: cover;
   height: 800px;

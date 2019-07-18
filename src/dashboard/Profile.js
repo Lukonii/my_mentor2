@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../Firebase";
+import { Router, navigate } from "@reach/router";
 import ImageUpload from "../ImageUpload";
 
 class Profile extends Component {
@@ -7,7 +8,7 @@ class Profile extends Component {
     super(props);
     this.state = {
       ProfilePhoto: "",
-      Name: "",
+      Name: props.profileInfo,
       Surname: "",
       Email: "",
       Skype: "",
@@ -28,12 +29,22 @@ class Profile extends Component {
   handleSubmit(e) {
     e.preventDefault();
     //hire I will put my data to database
-    //ovde mora da bude props
+    // name je vrednost state.Name ali se sa svakom promenom
+    // handleChange menja state.Name
+    //i ako je name==="" onda ce da stavmi props inace
+    // ce da bude state.Name vrednost za name
     let name = this.state.Name;
     let language = this.state.Language;
     let email = this.state.Email;
     if (!name) {
       name = this.props.profileInfo;
+    } else {
+      // na drugi nacin se menja ime u bazi
+      firebase.auth().onAuthStateChanged(FBUser => {
+        FBUser.updateProfile({
+          displayName: name
+        });
+      });
     }
     if (!language) {
       language = "English";
@@ -46,7 +57,7 @@ class Profile extends Component {
 
     //ako ovde stavim state uzece sadasnju vrednost
     //ako stavim props uzece uzera koji je logovan tako je namesteno
-    ref.push({
+    ref.update({
       Name: name,
       Surname: this.state.Surname,
       Email: email,
@@ -54,19 +65,12 @@ class Profile extends Component {
       Location: this.state.Location,
       Language: language
     });
-    this.setState({
-      Name: "",
-      Surname: "",
-      Email: "",
-      Skype: "",
-      Location: "",
-      Language: ""
-    });
   }
+
   render() {
     return (
       <div className="container mt-4 card text-white bg-primary mb-3 w-50">
-        <form className="formgroup" onSubmit={this.handleSubmit}>
+        <form className="form-group" onSubmit={this.handleSubmit}>
           <div className="input-group input-group-lg  p-3">
             <div className="input-group input-group-sm mb-3">
               <div className="input-group-prepend">
@@ -80,7 +84,7 @@ class Profile extends Component {
                 name="Name"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
-                placeholder={this.props.profileInfo}
+                placeholder={this.state.Name}
                 value={this.state.Name}
                 onChange={this.handleChange}
               />
@@ -97,7 +101,7 @@ class Profile extends Component {
                 name="Surname"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
-                placeholder=""
+                placeholder="put surname here"
                 value={this.state.Surname}
                 onChange={this.handleChange}
               />
@@ -131,7 +135,7 @@ class Profile extends Component {
                 name="Skype"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
-                placeholder=""
+                placeholder="put skype name here"
                 value={this.state.Skype}
                 onChange={this.handleChange}
               />
@@ -148,7 +152,7 @@ class Profile extends Component {
                 name="Location"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
-                placeholder=""
+                placeholder="put country here"
                 value={this.state.Location}
                 onChange={this.handleChange}
               />
@@ -165,7 +169,7 @@ class Profile extends Component {
                 name="Language"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
-                placeholder="English"
+                placeholder="put languages you know here"
                 value={this.state.Language}
                 onChange={this.handleChange}
               />

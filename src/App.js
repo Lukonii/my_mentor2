@@ -42,7 +42,6 @@ class App extends Component {
           userID: FBUser.uid,
           email: email
         });
-
         const meetingsRef = firebase.database().ref("meetings/" + FBUser.uid);
 
         meetingsRef.on("value", snapshot => {
@@ -66,7 +65,6 @@ class App extends Component {
       }
     });
   }
-
   registerUser = userName => {
     firebase.auth().onAuthStateChanged(FBUser => {
       FBUser.updateProfile({
