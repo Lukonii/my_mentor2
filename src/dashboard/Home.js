@@ -23,9 +23,9 @@ class Home extends Component {
               <h1 className="pt-2" id="title1">
                 SATISFIED IN YOUR COMMUNICATION?
               </h1>
-              <h4>Your are on the right place to improve it!</h4>
+              <h4>here is a place to improve it!</h4>
               <div className="pb-3">
-                <button className="btn btn-info">how to use</button>{" "}
+                <button className="btn btn-info">keep me on</button>{" "}
                 <Link to="/mentors" className="btn btn-primary">
                   Find Mentor
                 </Link>

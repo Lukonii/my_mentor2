@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { FaOm, FaUserCircle } from "react-icons/fa";
 import { Link } from "@reach/router";
 import ShowProfilePhoto from "../ShowProfilePhoto";
 import mentor_logo from "../assets/images/mentor_logo.png";
@@ -9,32 +8,32 @@ class Navigation extends Component {
     const { user, logOutUser } = this.props;
 
     return (
-      <navbar className="navbar navbar-expand bg-primary navbar-dark ">
+      <nav className="navbar navbar-expand bg-primary navbar-dark ">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
               className="pr-2"
               src={mentor_logo}
               alt="logo"
-              height="30px"
-              width="25px"
+              height="45px"
+              width="35px"
             />
             My Mentor
           </Link>
           <div className="navbar-nav ml-auto">
             {user && (
-              <Link className="nav-item nav-link" to="/meetings">
-                meetings
+              <Link className="nav-item nav-link" to="/mentors">
+                <button className="btn btn-light">mentors</button>
               </Link>
             )}
             {!user && (
               <Link className="nav-item nav-link" to="/login">
-                log in
+                <button className="btn btn-info">log in</button>
               </Link>
             )}
             {!user && (
               <Link className="nav-item nav-link" to="/register">
-                register
+                <button className="btn btn-light">register</button>
               </Link>
             )}
             {user && (
@@ -43,21 +42,21 @@ class Navigation extends Component {
                 to="/login"
                 onClick={e => logOutUser(e)}
               >
-                log out
+                <button className="btn btn-info">log out</button>
               </Link>
             )}
             {user && (
-              <Link to="/profile" className="navbar-brand">
-                <ShowProfilePhoto
-                  className="pb-4 mr-1"
-                  userID={this.props.userID}
-                />{" "}
+              <Link
+                to={`/profile/${this.props.userID}`}
+                className="pl-3 navbar-brand pt-2"
+              >
+                <ShowProfilePhoto className="mr-1" userID={this.props.userID} />{" "}
                 Profile{" "}
               </Link>
             )}
           </div>
         </div>
-      </navbar>
+      </nav>
     );
   }
 }

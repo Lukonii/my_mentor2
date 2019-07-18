@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TakeProfilePhoto from "../TakeProfilePhoto";
+import { Link } from "@reach/router";
 
 class MentorsList extends Component {
   constructor(props) {
@@ -38,6 +39,9 @@ class MentorsList extends Component {
                     longer.
                   </p>
                 </div>
+                <Link to={`/profile/${mentors[i].userID}`}>
+                  <button className="btn btn-info">View</button>
+                </Link>
               </div>
               <div className="card-footer">
                 <small className="text-muted">Last seen 1 day ago</small>

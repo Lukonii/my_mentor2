@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../Firebase";
-import { Router, navigate } from "@reach/router";
+import { Router, navigate, Link } from "@reach/router";
 import ImageUpload from "../ImageUpload";
 
 class Profile extends Component {
@@ -10,7 +10,7 @@ class Profile extends Component {
       ProfilePhoto: "",
       Name: props.profileInfo,
       Surname: "",
-      Email: "",
+      Email: props.profileEmail,
       Skype: "",
       Location: "",
       Language: ""
@@ -49,9 +49,8 @@ class Profile extends Component {
     if (!language) {
       language = "English";
     }
-    if (!email) {
-      email = this.props.profileEmail;
-    }
+    //mejl necemo da menjamo!
+    //email is not changed on any site
 
     const ref = firebase.database().ref(`profiles/${this.props.userID}`);
 
@@ -69,126 +68,11 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="container mt-4 card text-white bg-primary mb-3 w-50">
-        <form className="form-group" onSubmit={this.handleSubmit}>
-          <div className="input-group input-group-lg  p-3">
-            <div className="input-group input-group-sm mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  Name:
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="Name"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                placeholder={this.state.Name}
-                value={this.state.Name}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="input-group input-group-sm mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  Surname:
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="Surname"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                placeholder="put surname here"
-                value={this.state.Surname}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="input-group input-group-sm mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  Email:
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="Email"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                placeholder={this.props.profileEmail}
-                value={this.state.Email}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="input-group input-group-sm mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  Skype:
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="Skype"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                placeholder="put skype name here"
-                value={this.state.Skype}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="input-group input-group-sm mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  Country:
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="Location"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                placeholder="put country here"
-                value={this.state.Location}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="input-group input-group-sm mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  Language:
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="Language"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                placeholder="put languages you know here"
-                value={this.state.Language}
-                onChange={this.handleChange}
-              />
-            </div>
-
-            <div className="text-center">
-              <button type="submit" className="btn btn-info" id="buttonAdd">
-                Submit Changes
-              </button>
-            </div>
-          </div>
-
-          <p className="ml-2">
-            * Fill in your data fields or modify existing ones.
-          </p>
-        </form>
-        <div className="mb-3 pt-3 d-flex justify-content-center">
-          <ImageUpload userID={this.props.userID} />
-        </div>
+      <div>
+        Profile!
+        <Link to="/editprofile" className="navbar-brand">
+          <button className="btn btn-info">Edit</button>
+        </Link>
       </div>
     );
   }

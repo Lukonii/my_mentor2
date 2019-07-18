@@ -15,28 +15,28 @@ class Mentors extends Component {
     const mentorsRef = firebase.database().ref("profiles");
     mentorsRef.on("value", snapshot => {
       snapshot.forEach(data => {
+        // mentors - podaci iz baze za mentora bez id
         let mentors = data.val();
-
-        let keys = Object.keys(snapshot.val());
-        let k = keys[i];
-        let userID = k;
-        keys = Object.keys(mentors);
-        k = keys[0];
-        let init = mentors[k];
-
-        mentorsList.push({
-          userID: userID,
-          key: k,
-          mentor: init
-        });
+        if (mentors["mentor"]) {
+          // lista idjeva
+          let keys = Object.keys(snapshot.val());
+          // specifican id usera za vrednost key[i]
+          let userID = keys[i];
+          // init ce da ima vrednost objekta mentor
+          let init = mentors;
+          mentorsList.push({
+            userID: userID,
+            key: userID,
+            mentor: init
+          });
+        }
         i = i + 1;
       }),
         this.setState({
           mentors: mentorsList,
           howManyMentors: mentorsList.length
         });
-    }),
-      console.log(mentorsList);
+    });
   }
   render() {
     return (

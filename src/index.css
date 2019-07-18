@@ -9,6 +9,8 @@ nav-item {
   font-weight: 200;
   line-height: 110%;
 }
+.btn,
+.card,
 .navbar {
   z-index: 1;
   -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -84,7 +86,7 @@ nav-item {
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
-    #26d0ce,
+    #00b4db,
     #1a2980
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

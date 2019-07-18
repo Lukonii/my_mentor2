@@ -32,8 +32,8 @@ class ShowProfilePhoto extends Component {
       <img
         src={this.state.src}
         alt="Avatar"
-        height="30"
-        width="30"
+        height="40"
+        width="40"
         style={{ borderRadius: "50px" }}
       />
     );

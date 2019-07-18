@@ -47,6 +47,7 @@ class ImageUpload extends Component {
       },
       () => {}
     );
+    window.location.reload();
   };
   componentDidMount() {
     console.log(
@@ -84,16 +85,14 @@ class ImageUpload extends Component {
             type="file"
             onChange={this.handleChange}
           />
-          <Link to="/">
-            <button
-              onClick={this.uploadPhoto}
-              type="submit"
-              className="btn btn-info"
-              id="buttonAdd"
-            >
-              Upload Photo
-            </button>
-          </Link>
+          <button
+            onClick={this.uploadPhoto}
+            type="submit"
+            className="btn btn-info"
+            id="buttonAdd"
+          >
+            Upload Photo
+          </button>
         </div>
       </div>
     );
