@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
+html,
+body {
+}
 body {
   font-weight: 200;
   font-family: "Abel" !important;
@@ -21,6 +24,9 @@ nav-item {
 .btn,
 .form-control {
   border-radius: 0;
+}
+.card {
+  background: #ffffff; /* fallback for old browsers */
 }
 #card {
   min-width: 200px;
@@ -77,7 +83,7 @@ nav-item {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;*/
-  min-height: 100em;
+  min-height: 1000px;
   background: #1a2980; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
@@ -89,4 +95,13 @@ nav-item {
     #00b4db,
     #1a2980
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.footer {
+  position: bottom;
+}
+#inputGroupFile01 {
+  display: none;
+}
+#country {
+  display: inline-block;
 }

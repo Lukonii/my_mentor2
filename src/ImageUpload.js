@@ -13,7 +13,8 @@ class ImageUpload extends Component {
       image: null,
       name: "",
       url: "",
-      src: ""
+      src: "",
+      message: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +28,8 @@ class ImageUpload extends Component {
       this.setState({
         name: e.target.files[0].name,
         src: URL.createObjectURL(e.target.files[0]),
-        image: e.target.files[0]
+        image: e.target.files[0],
+        message: "Now upload photo!"
       });
     }
   }
@@ -47,6 +49,7 @@ class ImageUpload extends Component {
       },
       () => {}
     );
+
     window.location.reload();
   };
   componentDidMount() {
@@ -73,26 +76,50 @@ class ImageUpload extends Component {
 
   render() {
     return (
-      <div>
-        <span>Profile Photo:</span>
-        <br />
-        <img src={this.state.src} alt="Avatar" height="100" width="100" />
-        <br />
-        <div className="text-center">
-          <input
-            accept="image/*"
-            className=""
-            type="file"
-            onChange={this.handleChange}
-          />
-          <button
-            onClick={this.uploadPhoto}
-            type="submit"
-            className="btn btn-info"
-            id="buttonAdd"
-          >
-            Upload Photo
-          </button>
+      <div className="col-10 col-sm-10 col-md-10 col-lg-10">
+        <span>
+          <h5>Profile Photo:</h5>
+        </span>
+        <img src={this.state.src} alt="Avatar" height="200" width="200" />
+        <p className="ml-2">{this.state.message}</p>
+        <div className="row">
+          <div className="col text-right">
+            <div className="input-group">
+              <div className="custom-file ">
+                <input
+                  accept="image/*"
+                  type="file"
+                  className="custom-file-input"
+                  id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01"
+                  onChange={this.handleChange}
+                />
+                <label
+                  className="text-center"
+                  style={{
+                    backgroundColor: "#555555",
+                    color: "white",
+                    margin: 2,
+                    padding: 6,
+                    borderRadius: 0,
+                    pointer: "pointer",
+                    boxShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)"
+                  }}
+                  htmlFor="inputGroupFile01"
+                >
+                  Select your photo
+                </label>
+                <button
+                  onClick={this.uploadPhoto}
+                  type="submit"
+                  className="btn btn-sm btn-info"
+                  id="buttonAdd"
+                >
+                  Upload Photo
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

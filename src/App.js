@@ -9,6 +9,7 @@ import Dashboard from "./dashboard/Dashboard";
 import EditProfile from "./dashboard/EditProfile";
 import Profile from "./dashboard/Profile";
 import Navigation from "./layout/Navigation";
+import Footer from "./layout/Footer";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Meetings from "./Meetings";
@@ -145,7 +146,6 @@ class App extends Component {
           <Login path="/login" />
           <Register path="/register" registerUser={this.registerUser} />
           <About path="/about" />
-          <About path="/editprofile" />
           <Mentors path="/mentors" />
         </Router>
       );
