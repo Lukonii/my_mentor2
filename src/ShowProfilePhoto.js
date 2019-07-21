@@ -34,7 +34,7 @@ class ShowProfilePhoto extends Component {
         alt="Avatar"
         height="40"
         width="40"
-        style={{ borderRadius: "50px" }}
+        style={{ borderRadius: "50%" }}
       />
     );
   }

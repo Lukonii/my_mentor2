@@ -5,9 +5,11 @@ import firebase from "./Firebase";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import Home from "./dashboard/Home";
-import Dashboard from "./dashboard/Dashboard";
+import EmailTo from "./dashboard/EmailTo";
 import EditProfile from "./dashboard/EditProfile";
 import Profile from "./dashboard/Profile";
+import MentorProfile from "./dashboard/MentorProfile";
+import EditMentorProfile from "./dashboard/EditMentorProfile";
 import Navigation from "./layout/Navigation";
 import Footer from "./layout/Footer";
 import Login from "./auth/Login";
@@ -115,7 +117,6 @@ class App extends Component {
         <Router>
           <Home path="/" user={this.state.user} />
           <Login path="/login" />
-          <Dashboard path="/dashboard" profileName={this.state.userID} />
           <Meetings
             path="/meetings"
             meetings={this.state.meetings}
@@ -129,12 +130,21 @@ class App extends Component {
           <CheckIn path="/checkin/:userID/:meetingID" />
           <Register path="/register" registerUser={this.registerUser} />
           <About path="/about" />
-          <Profile path="/profile/:userID" userID={this.state.userID} />
+          <Profile
+            path="/profile"
+            profileEmail={this.state.email}
+            userID={this.state.userID}
+          />
           <EditProfile
             path="/editprofile"
             profileInfo={this.state.displayName}
             userID={this.state.userID}
             profileEmail={this.state.email}
+          />
+          <MentorProfile path="/mentor/:userID" />
+          <EditMentorProfile
+            path="/editmentorprofile"
+            userID={this.state.userID}
           />
           <Mentors path="/mentors" />
         </Router>
@@ -147,12 +157,12 @@ class App extends Component {
           <Register path="/register" registerUser={this.registerUser} />
           <About path="/about" />
           <Mentors path="/mentors" />
+          <MentorProfile path="/mentor/:userID" />
         </Router>
       );
     }
     return (
       <div id="app">
-        <CssBaseline />
         <Navigation
           user={this.state.user}
           userID={this.state.userID}

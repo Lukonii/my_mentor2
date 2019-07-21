@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import TakeProfilePhoto from "../TakeProfilePhoto";
 import { Link } from "@reach/router";
+import firebase from "../Firebase";
 
 class MentorsList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      About: ""
+    };
   }
 
   render() {
@@ -33,14 +37,10 @@ class MentorsList extends Component {
                       <b>{mentor.Skype}</b>
                     </span>
                   </span>
-                  <p>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
+                  <p>{this.state.About}</p>
                 </div>
-                <Link to={`/profile/${mentors[i].userID}`}>
-                  <button className="btn btn-info">View</button>
+                <Link to={`/mentor/${mentors[i].userID}`}>
+                  <button className="btn btn-info">view</button>
                 </Link>
               </div>
               <div className="card-footer">
@@ -54,7 +54,7 @@ class MentorsList extends Component {
       showMentors = <div />;
     }
     return (
-      <div className="container mt-5 d-flex justify-content-center">
+      <div className="container mt-3 d-flex justify-content-center">
         <div className="row">{showMentors}</div>
       </div>
     );

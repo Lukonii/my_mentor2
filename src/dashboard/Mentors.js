@@ -17,7 +17,7 @@ class Mentors extends Component {
       snapshot.forEach(data => {
         // mentors - podaci iz baze za mentora bez id
         let mentors = data.val();
-        if (mentors["mentor"]) {
+        if (mentors["Mentor"]) {
           // lista idjeva
           let keys = Object.keys(snapshot.val());
           // specifican id usera za vrednost key[i]

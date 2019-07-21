@@ -1,0 +1,27 @@
+.modal1 {
+  width: 80%;
+  background: white;
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 20vh;
+  left: 10%;
+}
+.modal__header {
+  padding: 1rem;
+  background: #00b4db;
+  color: white;
+}
+.modal__header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.modal__content {
+  padding: 1rem;
+}
+.modal__actions {
+  display: flex;
+  padding: 1rem;
+  justify-content: flex-end;
+}
