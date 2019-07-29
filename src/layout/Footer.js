@@ -76,7 +76,7 @@ class footer extends Component {
             <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-lx-12">
               © 2019 Copyright:{" "}
               <b>
-                <i>personalmentoring.com</i>
+                <i>getonlinementor.com</i>
               </b>
             </div>
           </div>
