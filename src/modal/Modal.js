@@ -3,13 +3,15 @@ import "./Modal.css";
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      Message: props.Message
+    };
   }
   render() {
     return (
       <div className="modal1">
         <header className="modal__header">
-          <h1>Why you want to become a mentor?</h1>
+          <h1>{this.state.Message}</h1>
         </header>
         <section className="modal__content">{this.props.children}</section>
         <section className="modal__actions">
@@ -18,7 +20,7 @@ class Modal extends Component {
           </button>
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-info"
             onClick={this.props.onConfirm}
           >
             send

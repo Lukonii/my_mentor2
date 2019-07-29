@@ -50,7 +50,7 @@ class Login extends Component {
 
   render() {
     return (
-      <form className="mt-3" onSubmit={this.handleSubmit}>
+      <form className="page mt-3" onSubmit={this.handleSubmit}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
@@ -90,7 +90,7 @@ class Login extends Component {
                     />
                   </section>
                   <div className="form-group text-right mb-0">
-                    <button className="btn btn-primary" type="submit">
+                    <button className="btn btn-info" type="submit">
                       Log in
                     </button>
                   </div>

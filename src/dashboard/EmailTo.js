@@ -9,7 +9,8 @@ class EmailTo extends Component {
     creating: false,
     visibleS: false,
     visibleW: false,
-    visibleD: false
+    visibleD: false,
+    Message: "Why do you want to become a mentor?"
   };
 
   constructor(props) {
@@ -83,16 +84,19 @@ class EmailTo extends Component {
             canConfirm
             onCancel={this.modalCancelHandler}
             onConfirm={this.modalConfirmHandler}
+            Message={this.state.Message}
           >
             <form>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Your email</label>
+                <label htmlFor="exampleInputEmail1">
+                  Your email or Full Name
+                </label>
                 <input
                   type="email"
                   className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  placeholder="Enter email or Full Name"
                   ref={this.emailElRef}
                 />
                 <small id="emailHelp" className="form-text text-muted">

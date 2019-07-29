@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./Firebase";
-import AvatarPhoto from "./assets/images/avatarMan.jpg";
+import AvatarPhoto from "./assets/images/avatar3.JPG";
 
 class ShowProfilePhoto extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ShowProfilePhoto extends Component {
   componentDidMount() {
     const ref = firebase
       .storage()
-      .ref(`images/${this.props.userID}/profilePhoto`);
+      .ref(`images/${this.props.userID}/profilePhoto.jpg`);
 
     ref
       .getDownloadURL()

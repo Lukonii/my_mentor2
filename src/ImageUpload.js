@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import firebase from "./Firebase";
-import AvatarPhoto from "./assets/images/avatarMan.jpg";
+import FileUploader from "react-firebase-file-uploader";
+import AvatarPhoto from "./assets/images/avatar3.JPG";
 import { Link } from "@reach/router";
 import { navigate } from "@reach/router";
+import CustomUploadButton from "react-firebase-file-uploader/lib/CustomUploadButton";
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -14,51 +16,36 @@ class ImageUpload extends Component {
       name: "",
       url: "",
       src: "",
-      message: ""
+      message: "",
+      image2: "",
+      imageURL: "",
+      progress: 0
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.uploadPhoto = this.uploadPhoto.bind(this);
   }
-
-  handleChange(e) {
-    e.preventDefault();
-
-    if (e.target.files[0]) {
-      this.setState({
-        name: e.target.files[0].name,
-        src: URL.createObjectURL(e.target.files[0]),
-        image: e.target.files[0],
-        message: "Now upload photo!"
-      });
-    }
-  }
-  uploadPhoto = () => {
-    const uploadTask = firebase
+  handleProgress = progress => this.setState({ progress });
+  handleUploadStart = () => {
+    this.setState({
+      progress: 0
+    });
+  };
+  handleUploadError = error => {
+    this.setState({ message: "Error while uploading, try again!" });
+    console.error(error);
+  };
+  handleUploadSuccess = filename => {
+    this.setState({ progress: 100, message: "Photo changed!" });
+    firebase
       .storage()
-      .ref(`images/${this.props.userID}/profilePhoto`)
-      .put(this.state.image);
-
-    //ako ovde stavim state uzece sadasnju vrednost
-    //ako stavim props uzece uzera koji je logovan tako je namesteno
-    uploadTask.on(
-      "state_changed",
-      snapshot => {},
-      error => {
-        console.log(error);
-      },
-      () => {}
-    );
-
+      .ref(`images/${this.props.userID}/`)
+      .child(filename)
+      .getDownloadURL()
+      .then(url => this.setState({ src: url }));
     window.location.reload();
   };
   componentDidMount() {
-    console.log(
-      `Nece raditi user id ako se direktno ode tu: ${this.props.userID}`
-    );
     const ref = firebase
       .storage()
-      .ref(`images/${this.props.userID}/profilePhoto`);
+      .ref(`images/${this.props.userID}/profilePhoto.jpg`);
 
     ref
       .getDownloadURL()
@@ -81,46 +68,27 @@ class ImageUpload extends Component {
           <h5>Profile Photo:</h5>
         </span>
         <img src={this.state.src} alt="Avatar" height="200" width="200" />
-        <p className="ml-2">{this.state.message}</p>
-        <div className="row">
-          <div className="col text-right">
-            <div className="input-group">
-              <div className="custom-file ">
-                <input
-                  accept="image/*"
-                  type="file"
-                  className="custom-file-input"
-                  id="inputGroupFile01"
-                  aria-describedby="inputGroupFileAddon01"
-                  onChange={this.handleChange}
-                />
-                <label
-                  className="text-center"
-                  style={{
-                    backgroundColor: "#555555",
-                    color: "white",
-                    margin: 2,
-                    padding: 6,
-                    borderRadius: 0,
-                    pointer: "pointer",
-                    boxShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)"
-                  }}
-                  htmlFor="inputGroupFile01"
-                >
-                  Select your photo
-                </label>
-                <button
-                  onClick={this.uploadPhoto}
-                  type="submit"
-                  className="btn btn-sm btn-info"
-                  id="buttonAdd"
-                >
-                  Upload Photo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p>{this.state.message}</p>
+        <p>Progress: {this.state.progress}</p>
+        <CustomUploadButton
+          accept="image/*"
+          filename={"profilePhoto.jpg"}
+          storageRef={firebase.storage().ref(`images/${this.props.userID}/`)}
+          onUploadStart={this.handleUploadStart}
+          onUploadError={this.handleUploadError}
+          onUploadSuccess={this.handleUploadSuccess}
+          onProgress={this.handleProgress}
+          style={{
+            backgroundColor: "#f7b733",
+            color: "black",
+            padding: 10,
+            borderRadius: 25 + "px",
+            cursor: "pointer",
+            boxShadow: "1px 2px 5px rgba(0, 0, 0, 0.35)"
+          }}
+        >
+          select your profile photo
+        </CustomUploadButton>
       </div>
     );
   }

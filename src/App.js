@@ -1,6 +1,6 @@
 // Import React
 import React, { Component } from "react";
-import { Router, navigate } from "@reach/router";
+import { Router, navigate, Location, Redirect, Link } from "@reach/router";
 import firebase from "./Firebase";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
@@ -11,7 +11,7 @@ import Profile from "./dashboard/Profile";
 import MentorProfile from "./dashboard/MentorProfile";
 import EditMentorProfile from "./dashboard/EditMentorProfile";
 import Navigation from "./layout/Navigation";
-import Footer from "./layout/Footer";
+import Footer from "./layout/footer";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Meetings from "./Meetings";
@@ -20,6 +20,8 @@ import Attendees from "./Attendees";
 import About from "./About";
 
 import Mentors from "./dashboard/Mentors";
+
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 class App extends Component {
   constructor() {
@@ -104,7 +106,6 @@ class App extends Component {
         navigate("/login");
       });
   };
-
   addMeeting = meetingName => {
     const ref = firebase.database().ref(`meetings/${this.state.user.uid}`);
     ref.push({ meetingName: meetingName });
@@ -114,22 +115,10 @@ class App extends Component {
     let router;
     if (isLoggedIn) {
       router = (
-        <Router>
+        <Router primary={false}>
           <Home path="/" user={this.state.user} />
           <Login path="/login" />
-          <Meetings
-            path="/meetings"
-            meetings={this.state.meetings}
-            addMeeting={this.addMeeting}
-            userID={this.state.userID}
-          />
-          <Attendees
-            path="/attendees/:userID/:meetingID"
-            adminUser={this.state.userID}
-          />
-          <CheckIn path="/checkin/:userID/:meetingID" />
           <Register path="/register" registerUser={this.registerUser} />
-          <About path="/about" />
           <Profile
             path="/profile"
             profileEmail={this.state.email}
@@ -151,25 +140,29 @@ class App extends Component {
       );
     } else {
       router = (
-        <Router>
+        <Router primary={false}>
           <Home path="/" user={this.state.user} />
           <Login path="/login" />
           <Register path="/register" registerUser={this.registerUser} />
-          <About path="/about" />
           <Mentors path="/mentors" />
           <MentorProfile path="/mentor/:userID" />
         </Router>
       );
     }
     return (
-      <div id="app">
+      <React.Fragment>
         <Navigation
           user={this.state.user}
           userID={this.state.userID}
           logOutUser={this.logOutUser}
         />
-        {router}
-      </div>
+        <div id="app">
+          {router}
+          <footer>
+            <Footer />
+          </footer>
+        </div>
+      </React.Fragment>
     );
   }
 }

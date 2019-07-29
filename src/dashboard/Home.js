@@ -1,162 +1,399 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import {
+  FiRepeat,
+  FiLogIn,
+  FiLogOut,
+  FiHome,
+  FiUsers,
+  FiVideo,
+  FiUserPlus,
+  FiFileText,
+  FiArrowUp
+} from "react-icons/fi";
+import mentor_logo from "../assets/images/mentor_logo.png";
 import slika2_1 from "../assets/images/slika2_1.JPG";
 import slika2_2 from "../assets/images/slika2_2.JPG";
 import slika29 from "../assets/images/slika29.jpg";
 
 class Home extends Component {
+  state = {
+    mes1: ""
+  };
+  componentWillMount() {
+    let newDate = new Date();
+    let date = newDate.getDate();
+    date = date / 7;
+    let date2 = date;
+    date = date * 10;
+    date = Number.parseInt(date, 10);
+    date2 = Number.parseInt(date2, 10);
+    date2 = date2 * 10;
+    date = date - date2;
+    switch (date) {
+      case 1:
+        this.setState({
+          mes1:
+            "Pick people to help you that you like being around. Make sure you’re following your heart while not running from the hard issues.  Become a Master in the Art of Living where people can’t tell if you’re working or playing because, to you, you’re always doing both!"
+        });
+        return;
+      case 2:
+        this.setState({
+          mes1:
+            "Do something about your personal development plan today. It’s going to take some time to achieve lasting change so you need to start now. You can build on what you do today, tomorrow. Don’t become a pro at crastination!"
+        });
+        return;
+      case 4:
+        this.setState({
+          mes1:
+            "To make a plan you need to include steps. Break a large goal into it’s smallest components. Keep the end result in mind as you focus on the smaller bite sized steps."
+        });
+        return;
+      case 5:
+        this.setState({
+          mes1:
+            "You can gain from the success of other people and you can learn from their mistakes. Your own experience is a harsh teacher so learn from the mistakes of others. If you can find a mentor or coach your task will be easier. Read as many books as you can."
+        });
+        return;
+      case 7:
+        this.setState({
+          mes1:
+            "You are responsible for your own progress. You are responsible for what you are today and where you are today."
+        });
+        return;
+      case 8:
+        this.setState({
+          mes1:
+            "Your personal self development plan needs to include how you are going to change, what action will you take? Only action leads to results.  “I see better than I hear” comes to mind here."
+        });
+        return;
+      case 0:
+        this.setState({
+          mes1:
+            "Focus on what you already have. Think about how others benefit from what you do. If you improve yourself, those benefits will increase. Your personal development is for others, as well as for you."
+        });
+        return;
+    }
+  }
   render() {
     const { user } = this.props;
 
-    const biggerLead = {
-      fontSize: 1.4 + "em",
-      fontWeight: 200
-    };
     return (
-      <div className="container-fluid">
-        <div className="row align-items-center justify-content-center">
-          <div
-            className="col-11 col-sm-10 col-md-10 col-lg-10 col-xl-10"
-            id="intro1"
-          >
-            <h1 className="pt-2" id="title1">
-              SATISFIED IN YOUR COMMUNICATION?
-            </h1>
-            <h4>here is a place to improve it!</h4>
-            <div className="pb-3">
-              <button className="btn btn-info">keep me on</button>{" "}
-              <Link to="/mentors" className="btn btn-primary">
-                Find Mentor
-              </Link>
+      <React.Fragment>
+        <div className="">
+          <div className="container">
+            <div className="row d-flex justify-content-center align-items-center">
+              <div className="card text-left" id="primo1">
+                <div className="card-body">
+                  <h1 className="card-title">Let the mentor show you!</h1>
+                  <div className="card-text">
+                    <p>
+                      <span>Work with mentor for a</span>
+                      <span>hour, day or month.</span>
+                    </p>
+                    <div>
+                      <a href="#primo3">
+                        <button className="btn btn-light mr-1">
+                          <FiFileText /> read more
+                        </button>
+                      </a>
+                      <Link to="/mentors" className="btn btn-info">
+                        <FiUserPlus /> find your mentor
+                      </Link>
+                    </div>
+                    <h2 className="pt-2 pl-2">
+                      <i>1:1 online mentoring</i>
+                    </h2>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-10" id="intro1">
-            <h2 className="font-weight-light ">
-              THIS MIGHT BE THE MOST IMPORTANT SITE OF YOUR LIFE...
-            </h2>
-            <br />
-            <h4 className="font-weight-light text-left">Dear Friend.</h4>
-            <div className="pl-4 pr-4">
-              <p className="lead text-left" style={biggerLead}>
-                With years of working with people we have been realized that ...
-                More and more people in this world have a problem with
-                comunnication. And with all socialmedia stuff, instead of people
-                becomming more conecter, they become more and more intothem self
-                If you find yourself in this group of people. then you're in the
-                place you are It's safe to change my life, I promise you that.
-              </p>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <h1 className="card-title">1. Why?</h1>
+                  <div className="lead card-text">
+                    <p>
+                      Where there is no parent or friend to help you, there is a
+                      mentor.
+                      <br />
+                      Choose a mentor and he will work with you on your persoanl
+                      development.
+                    </p>
+                    <p>
+                      <span id="boldit">
+                        I believe that a mentor can help you make progress fast.
+                      </span>{" "}
+                      An experienced mentor who knows how to work can give you
+                      real tips that are useful to you as a specific individual.
+                      It can help you a lot in solving your problems from a
+                      social area that suits you. Mentor meets you personally
+                      and knows what's best for you. <br />
+                      The mentor can GIVE YOU instructions and advices on how to
+                      behave in society, how to overcome fears and deal with
+                      them, how to work on yourself and self-confidence, and
+                      much more.
+                      <br />
+                      That's not such a great connection like you can get HERE.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <h1 className="card-title">2. How?</h1>
+                  <div className="lead card-text">
+                    <p>
+                      Ok... if you DECIDE to engage mentor, you will have some
+                      BENEFITS in your life. You probably know for some of tham,
+                      but let's dig deeper.
+                      <br />
+                      <br />
+                      <span id="boldit">
+                        {" "}
+                        The specific benefits of being mentored include:
+                      </span>
+                      1. Being encouraged and empowered in personal development.{" "}
+                      <br />
+                      2. Being helped to identify and achieve career goals.
+                      <br />
+                      3. Being helped to identify and correct gaps in generic
+                      skills and knowledge.
+                      <br />
+                      4. Increasing your confidence developing and maintaining a
+                      broader perspective on career options and opportunities.
+                      <br />
+                      5. Having access to a senior role model gaining insight
+                      into University culture developing social and personal
+                      skills.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="primo3">
+            <div className="container">
+              <div className="row d-flex justify-content-center">
+                <div className="card text-left" id="primo2">
+                  <div className="card-body">
+                    <h1 className="card-title">3. What?</h1>
+                    <div className="lead card-text">
+                      <p>
+                        The process is very easy! All you need to do is to pick
+                        a mentor that you like, and start communication with
+                        him. You will get to know the mentor online via SKYPE
+                        and discuss what you would like to improve.
+                        <span id="boldit">
+                          Talk 1:1 online with your mentor!
+                        </span>{" "}
+                        Your mentor will become your PERSONAL trainer. If you do
+                        not like mentor, you can try it with others, etc.
+                        <br />
+                        After just a few classes with a mentor, you will feel
+                        MORE confident and become aware.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container-fluid">
             <div className="row">
-              <div className="col">
-                <p className="lead text-left" style={biggerLead}>
-                  A Brief Explanation: By using this, you can significantly
-                  improve your skills in communication in all fields so that no
-                  problem You talk to neighbors, acquaintances, colleagues, safo
-                  or a random walker on the street
-                </p>
+              <div className="card text-center" id="primo21">
+                <div className="card-body">
+                  <h2 className="card-title">
+                    Five adventages of online mentoring:
+                  </h2>
+                  <br />
+                  <div className=" card-text">
+                    <div className="row d-flex justify-content-center">
+                      <div className="col-11 col-sm-11 col-md-2 col-lg-2 col-xl-2">
+                        <h4>
+                          <span id="boldit">Accessibility and Flexibility</span>
+                        </h4>
+                      </div>
+
+                      <div className="col-11 col-sm-11 col-md-2 col-lg-2 col-xl-2">
+                        <h4>
+                          {" "}
+                          <span id="boldit">Lowest Price</span>
+                        </h4>
+                      </div>
+                      <div className="col-11 col-sm-11 col-md-2 col-lg-2 col-xl-2">
+                        <h4>
+                          {" "}
+                          <span id="boldit">Bigger choice</span>
+                        </h4>
+                      </div>
+                      <div className="col-11 col-sm-11 col-md-2 col-lg-2 col-xl-2">
+                        <h4>
+                          {" "}
+                          <span id="boldit">Face to Face</span>
+                        </h4>
+                      </div>
+                      <div className="col-11 col-sm-11 col-md-2 col-lg-2 col-xl-2">
+                        <h4>
+                          {" "}
+                          <span id="boldit">Comfort</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="col">
-                <img id="slika1" src={slika2_1} alt="slika2_1" />
+            </div>
+          </div>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <h1 className="card-title">Daily tip:</h1>
+                  <div className="lead card-text">
+                    <h2 id="daily">"{this.state.mes1}"</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <h1 className="card-title">Motivation:</h1>
+                  <div className="lead card-text">
+                    <p>
+                      For now let me tell you, no matter what your motivations
+                      might be: If there's just ONE thing I learned not only in
+                      SELF DEVELOPMENT then it's THIS…
+                    </p>
+                    <p>
+                      YOU HAVE THE POWER TO CHANGE YOUR LIFE. You've probably
+                      seen it. And you've also probably done it:
+                      <br />
+                      1. You picked one area in your life.
+                      <br />
+                      2. You realized what your current situation in that area
+                      is.
+                      <br />
+                      3. You decided that it shall NOT be like this for the rest
+                      of your life.
+                      <br />
+                      4. You spotted the flaws and deficiencies.
+                      <br />
+                      5. You did some research about what to do.
+                      <br />
+                      6. You found somebody that seemed to know what they're
+                      talking about.
+                      <br />
+                      7. You followed their advice, applied it and saw different
+                      results than before.
+                      <br />
+                      Pretty simple, right?
+                      <br />
+                      Now this could be areas like your health and fitness. This
+                      can be your social life. This can be your happiness and
+                      overall well-being. It can also be your financial
+                      situation. No matter what area of your life it is,
+                      important is to claim the power to change your life.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <div className="card-text">
+                    <div className="row text-center">
+                      <div className="col-11 col-sm-11 col-md-7 col-lg-4 col-lx-4">
+                        <h3>Number of active users:</h3>
+                        <h1 className="text-center">184</h1>
+                      </div>
+                      <div className="col-11 col-sm-11 col-md-7 col-lg-4 col-lx-4">
+                        <h3>Number of mentors:</h3>
+                        <h1 className="text-center">10</h1>
+                      </div>
+                      <div className="col-11 col-sm-11 col-md-7 col-lg-4 col-lx-4">
+                        {user == null && (
+                          <span>
+                            <h3>Join us:</h3>
+                            <Link to="/register" className="btn btn-light mr-2">
+                              Register
+                            </Link>
+                            <Link to="/login" className="btn btn-info mr-2">
+                              Log In
+                            </Link>
+                          </span>
+                        )}
+                        {user && (
+                          <div className="pb-3">
+                            <h3>Need a mentor?</h3>
+                            <Link to="/mentors" className="btn btn-info">
+                              find mentor
+                            </Link>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <h1 className="card-title">To resume:</h1>
+                  <div className="lead card-text">
+                    <p>
+                      Your mentor can help you progress much, but the KEY is in
+                      you. The mentor will give you INSTRUCTIONS on how to react
+                      and react in certain life circumstances, but it is up to
+                      you to APPLY them. If you need a mentor looking for it
+                      click here.
+                    </p>
+                    <a href="#primo1">
+                      <button className="btn btn-light mr-1">
+                        <FiArrowUp /> back on top
+                      </button>
+                    </a>
+                    <Link to="/mentors" className="btn btn-info">
+                      <FiUserPlus /> find your mentor
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="card text-left" id="primo2">
+                <div className="card-body">
+                  <h1 className="card-title">Future updates:</h1>
+                  <div className="lead card-text">
+                    1. Live chat and support. <br />
+                    2. Search buy keywords & tags. <br />
+                    3. Suggested books as separated section. <br />
+                    4. Subscription to newsletter. <br />
+                    5. Payments via web platform.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <br />
-        <div className="col-10 mt-3 pt-3" id="intro1">
-          <p className="lead text-left" style={biggerLead}>
-            Have you ever had a blockade in saying that you wanted to tell
-            somebody? Something, but you did not know how to express yourself.
-            Did you dare to give your opinion? Were these people misunderstood?{" "}
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            In your life, your personality, person, attitudes, concord and
-            disagreeing through communication, knowing the best way to which can
-            be the expression is one bonus that helps you to open and that
-            people from your environment better understand.
-          </p>
-          <div className="col">
-            <img id="slika1" src={slika29} alt="slika29" />
-          </div>
-          <p className="lead text-left" style={biggerLead}>
-            For now let me tell you, no matter what your motivations might be:
-            If there's just ONE thing I learned not only in SELF DEVELOPMENT but
-            also in BUSINESS, then it's THIS…
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            YOU HAVE THE POWER TO CHANGE YOUR LIFE. You've probably seen it. And
-            you've also probably done it: 1. You picked one area in your life.
-            2. You realized what your current situation in that area is. 3. You
-            decided that it shall NOT be like this for the rest of your life. 4.
-            You spotted the flaws and deficiencies. 5. You did some research
-            about what to do. 6. You found somebody that seemed to know what
-            they're talking about. 7. You followed their advice, applied it and
-            saw different results than before. Pretty simple, right? Now this
-            could be areas like your health and fitness. This can be your social
-            life. This can be your happiness and overall well-being. It can also
-            be your financial situation. No matter what area of your life it is,
-            important is to claim the power to change your life.
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            komunikacijski tipovi, ovde cu u zavisnosti od dana u nedelji da
-            menjam tip za taj dan
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            how to become better in comunication, cekiraj listu nasih mentora,
-            za sada je ona mala a li probrana uskoro cemo je prosiriti
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            ovde treba da se napise sta je poenta i kako funkcionise sajt
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            sta je neophodno da bi se koristio ovaj sajt WHO IS THE MENTORING
-            PROGRAM FOR? Here’s the necessary CRITERIA for acceptance into the
-            mentoring program with Max: Outside the box thinkers: This is for
-            the people daring to change the world, for people going against the
-            mainstream, for people who KNOW they are destined for something
-            bigger. Work Ethic: You don't dread hard work – quite the opposite–
-            you actually enjoy the process of putting in the hours that are
-            necessary to build your OWN LIFE. Positive Energy: You have a
-            positive outlook on life and are able to push through challenges
-            whenever they occur - you stay motivated and keep moving towards
-            your goals. ​Complete Ownership: You understand that it’s YOUR LIFE
-            you are responsible for and no matter what happens to you, there's
-            at least 80% of things, thoughts and actions you can CONTROL.
-          </p>
-          <p className="lead text-left" style={biggerLead}>
-            What can the mentoring program help you with? Stop doing what you
-            hate: If you currently feel stuck in a 9-to-5-job that you don't
-            enjoy, it's our primary goal to get you to be able to quit that
-            sucker – without losing your financial stability in the process.
-            Start doing what you love: In order for that to work, we'll find out
-            what you're naturally good at (even if you don't know the answer to
-            that yet), which problems you can solve for others and get paid in
-            such amounts that you'll never have to worry about your paycheck
-            again. Becoming your own boss: Once you're ready to fully commit to
-            your new venture and can confidently rely on your solid second
-            income stream, (exceeding your current job) then it's time to say
-            goodbye to your boss and finally become your own. ​Becoming
-            financially independent: Now that you are wholeheartedly involved in
-            your business, we can work out together how you can open the gates
-            of prosperity and really make a difference – in the world, on your
-            bank account, in your family, everywhere.
-          </p>
-          {user == null && (
-            <span>
-              <Link to="/register" className="btn btn-outline-primary mr-2">
-                Register
-              </Link>
-              <Link to="/login" className="btn btn-outline-primary mr-2">
-                Log In
-              </Link>
-            </span>
-          )}
-          {user && (
-            <Link to="/meetings" className="btn btn-primary">
-              Meetings
-            </Link>
-          )}
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

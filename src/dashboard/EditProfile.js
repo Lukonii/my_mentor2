@@ -17,7 +17,8 @@ class EditProfile extends Component {
       Location: "",
       Language: "",
       message: "",
-      Mentor: false
+      Mentor: false,
+      Stars: 0
     };
     console.log(props.userID);
     this.handleChange = this.handleChange.bind(this);
@@ -52,10 +53,13 @@ class EditProfile extends Component {
       name = this.props.profileInfo;
     } else {
       // na drugi nacin se menja ime u bazi
+
       firebase.auth().onAuthStateChanged(FBUser => {
-        FBUser.updateProfile({
-          displayName: name
-        });
+        if (FBUser) {
+          FBUser.updateProfile({
+            displayName: name
+          });
+        }
       });
     }
     if (!language) {
@@ -82,7 +86,8 @@ class EditProfile extends Component {
         Skype: this.state.Skype,
         Location: this.state.Location,
         Language: language,
-        Mentor: this.state.Mentor
+        Mentor: this.state.Mentor,
+        Stars: this.state.Stars
       })
       .then(
         this.setState({
@@ -136,13 +141,15 @@ class EditProfile extends Component {
         Skype: this.state.Skype,
         Location: this.state.Location,
         Language: language,
-        Mentor: this.state.Mentor
+        Mentor: this.state.Mentor,
+        Stars: this.state.Stars
       })
       .then(
         this.setState({
           message: "Your changes has been saved!"
         })
-      );
+      ),
+      console.log();
 
     navigate("/");
   }
@@ -158,7 +165,8 @@ class EditProfile extends Component {
           Skype: snapshot.val().Skype,
           Location: snapshot.val().Location,
           Language: snapshot.val().Language,
-          Mentor: snapshot.val().Mentor
+          Mentor: snapshot.val().Mentor,
+          Stars: snapshot.val().Stars
         });
       }
     });
@@ -174,7 +182,6 @@ class EditProfile extends Component {
                 <div className="card bg-light">
                   <div className="card-body">
                     <h3 className="font-weight-light mb-3">Edit profile:</h3>
-
                     <ImageUpload userID={this.props.userID} />
                     <br />
                     <h5>Profile Data:</h5>
@@ -507,7 +514,7 @@ class EditProfile extends Component {
                           className="btn btn-info"
                           id="buttonAdd"
                         >
-                          Submit Changes
+                          submit Changes
                         </button>
                       </div>
                     </div>
@@ -517,7 +524,7 @@ class EditProfile extends Component {
                     </p>
                     <div className="row mb-1">
                       <div className="col text-left">
-                        <Link to={`/profile/${this.props.userID}`}>
+                        <Link to={"/profile"}>
                           <button className="btn btn-info">
                             <FaArrowLeft />
                           </button>

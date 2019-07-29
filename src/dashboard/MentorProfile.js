@@ -3,6 +3,7 @@ import ProfileSimple from "./ProfileSimple";
 import firebase from "../Firebase";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "@reach/router";
+import EmailToMentor from "./EmailToMentor";
 
 class MentorProfile extends Component {
   constructor(props) {
@@ -14,9 +15,13 @@ class MentorProfile extends Component {
     Experience: "",
     Education: "",
     Skills: "",
-    Interests: ""
+    Interests: "",
+    user: null
   };
   componentDidMount() {
+    this.setState({
+      user: firebase.auth().currentUser
+    });
     const ref = firebase.database().ref(`mentors/${this.props.userID}`);
     ref.on("value", snapshot => {
       if (snapshot.val() !== null) {
@@ -34,10 +39,10 @@ class MentorProfile extends Component {
     return (
       <div className="container pb-3">
         <div className="row m-0 p-0">
-          <div className="col-11 col-sm-11 col-md-4 col-lg-4 col-xl-4">
+          <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
             <ProfileSimple userID={this.props.userID} />
           </div>
-          <div className="mt-3 col-11 col-sm-11 col-md-8 col-lg-8 col-lx-8">
+          <div className="mt-3 col-12 col-sm-12 col-md-8 col-lg-8 col-lx-8">
             <div className="card bg-light">
               <div className="card-header">About:</div>
               <div className="card-body">
@@ -70,12 +75,24 @@ class MentorProfile extends Component {
                   />
                 </div>
               </div>
-              <div className="pb-3 col text-left">
-                <Link to="/mentors">
-                  <button className="btn btn-info">
-                    <FaArrowLeft />
-                  </button>
-                </Link>
+              <div className="row p-3">
+                <div className="col text-left">
+                  <Link to="/mentors">
+                    <button className="btn btn-info">
+                      <FaArrowLeft />
+                    </button>
+                  </Link>
+                </div>
+                <div className="col">
+                  {this.state.user && <EmailToMentor />}
+                  {!this.state.user && (
+                    <Link to="/login">
+                      <button className="btn btn-info btn-block">
+                        contact mentor
+                      </button>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>

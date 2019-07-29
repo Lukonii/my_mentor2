@@ -8,8 +8,11 @@ class Mentors extends Component {
     mentors: null,
     howManyMentors: 0
   };
+  constructor(props) {
+    super(props);
+  }
 
-  componentDidMount() {
+  async componentDidMount() {
     let mentorsList = [];
     let i = 0;
     const mentorsRef = firebase.database().ref("profiles");
@@ -40,10 +43,12 @@ class Mentors extends Component {
   }
   render() {
     return (
-      <MentorsList
-        mentors={this.state.mentors}
-        howManyMentors={this.state.howManyMentors}
-      />
+      <div className="mr-0">
+        <MentorsList
+          mentors={this.state.mentors}
+          howManyMentors={this.state.howManyMentors}
+        />
+      </div>
     );
   }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import ShowProfilePhoto from "../ShowProfilePhoto";
-import mentor_logo from "../assets/images/mentor_logo.png";
-import { FiLogIn, FiLogOut } from "react-icons/fi";
+import mentor_logo2 from "../assets/images/mentor_logo.png";
+import { FiLogIn, FiLogOut, FiHome, FiUsers } from "react-icons/fi";
 
 class Navigation extends Component {
   constructor(props) {
@@ -27,17 +27,17 @@ class Navigation extends Component {
       ? "navbar-toggler navbar-toggler-right collapsed"
       : "navbar-toggler navbar-toggler-right";
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light transparent-nav">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
               className="pr-2"
-              src={mentor_logo}
+              src={mentor_logo2}
               alt="logo"
               height="45px"
               width="35px"
             />
-            My Mentor
+            Personal Mentoring
           </Link>
           <button
             onClick={this.toggleNavbar}
@@ -52,21 +52,30 @@ class Navigation extends Component {
             <span className="navbar-toggler-icon" />
           </button>
           <div className={`${classOne}`} id="navbarResponsive">
+            <Link className="nav-item nav-link" to="/">
+              <button onClick={this.toggleNavbar} className="btn btn-light">
+                <FiHome /> home
+              </button>
+            </Link>
             {user && (
               <Link className="nav-item nav-link" to="/mentors">
-                <button className="btn btn-light">mentors</button>
+                <button onClick={this.toggleNavbar} className="btn btn-light">
+                  <FiUsers /> mentors
+                </button>
               </Link>
             )}
             {!user && (
               <Link className="nav-item nav-link" to="/login">
-                <button className="btn btn-info">
+                <button onClick={this.toggleNavbar} className="btn btn-light">
                   <FiLogIn /> log in
                 </button>
               </Link>
             )}
             {!user && (
               <Link className="nav-item nav-link" to="/register">
-                <button className="btn btn-light">register</button>
+                <button onClick={this.toggleNavbar} className="btn btn-light">
+                  register
+                </button>
               </Link>
             )}
             {user && (
@@ -75,14 +84,14 @@ class Navigation extends Component {
                 to="/login"
                 onClick={e => logOutUser(e)}
               >
-                <button className="btn btn-info">
+                <button onClick={this.toggleNavbar} className="btn btn-light">
                   <FiLogOut /> log out
                 </button>
               </Link>
             )}
             {user && (
               <Link to={"/profile"} className="pl-3 navbar-brand pt-2">
-                <div className="row pr-3">
+                <div onClick={this.toggleNavbar} className="row pr-3">
                   <div className="col mr-0 pr-1">
                     <ShowProfilePhoto
                       className="mr-1"
