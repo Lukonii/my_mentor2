@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../Firebase";
-import { Link } from "@reach/router";
 import TakeProfilePhoto from "../TakeProfilePhoto";
-import { FiEdit3 } from "react-icons/fi";
-import EmailTo from "./EmailTo";
 
 class ProfileSimple extends Component {
   constructor(props) {

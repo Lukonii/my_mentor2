@@ -32,11 +32,12 @@ class EmailTo extends Component {
       return;
     }
     const ref = firebase.database().ref(`emails/${email}`);
-    ref.update({
-      Email: email,
-      Message: message
-    }),
-      this.setState({ creating: false, visibleS: !this.state.visibleS });
+    ref
+      .update({
+        Email: email,
+        Message: message
+      })
+      .then(this.setState({ creating: false, visibleS: !this.state.visibleS }));
   };
   modalCancelHandler = () => {
     this.setState({ creating: false, visibleW: !this.state.visibleW });

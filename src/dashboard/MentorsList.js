@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import TakeProfilePhoto from "../TakeProfilePhoto";
 import { Link } from "@reach/router";
-import firebase from "../Firebase";
 import StarRatings from "react-star-ratings";
 
 class MentorsList extends Component {
@@ -26,8 +25,7 @@ class MentorsList extends Component {
   render() {
     const mentors = this.props.mentors;
     let showMentors = [];
-    let listCards = [];
-    let rand = [1, 0, 2, 1, 0, 1, 0, 1, 2, 1, 1];
+    let rand = [1, 0, 1, 2, 0, 1, 0, 1, 2, 1, 1];
     if (mentors !== null) {
       for (let i = 0; i < mentors.length; i++) {
         /*let min = 1;

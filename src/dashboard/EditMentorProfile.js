@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "@reach/router";
 import firebase from "../Firebase";
-import { Router, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 
 class EditMentorProfile extends Component {
   constructor(props) {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Backdrop.css";
 const backdrop = props => <div className="backdrop1" />;
 

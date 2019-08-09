@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./Firebase";
-import FileUploader from "react-firebase-file-uploader";
 import AvatarPhoto from "./assets/images/avatar3.JPG";
-import { Link } from "@reach/router";
-import { navigate } from "@reach/router";
 import CustomUploadButton from "react-firebase-file-uploader/lib/CustomUploadButton";
 
 class ImageUpload extends Component {

@@ -1,25 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import {
-  FiRepeat,
-  FiLogIn,
-  FiLogOut,
-  FiHome,
-  FiUsers,
-  FiVideo,
-  FiUserPlus,
-  FiFileText,
-  FiArrowUp
-} from "react-icons/fi";
-import mentor_logo from "../assets/images/mentor_logo.png";
-import slika2_1 from "../assets/images/slika2_1.JPG";
-import slika2_2 from "../assets/images/slika2_2.JPG";
-import slika29 from "../assets/images/slika29.jpg";
+import { FiUserPlus, FiFileText, FiArrowUp } from "react-icons/fi";
 
+import TopMentors from "./TopMentors";
+import { Spring } from "react-spring/renderprops";
 class Home extends Component {
   state = {
     mes1: ""
   };
+
   componentWillMount() {
     let newDate = new Date();
     let date = newDate.getDate();
@@ -77,43 +66,75 @@ class Home extends Component {
   }
   render() {
     const { user } = this.props;
-
     return (
       <React.Fragment>
         <div className="">
           <div className="container">
-            <div className="row d-flex justify-content-center align-items-center">
+            <div className="row d-flex justify-content-center">
               <div className="card text-left" id="primo1">
                 <div className="card-body">
                   <h1 className="card-title">Let the mentor show you!</h1>
                   <div className="card-text">
                     <p>
-                      <span>Work with mentor for a</span>
-                      <span>hour, day or month.</span>
+                      <i id="primo1subtitle">
+                        Your mentor for personal development.
+                      </i>
                     </p>
-                    <div>
-                      <a href="#primo3">
-                        <button className="btn btn-light mr-1">
-                          <FiFileText /> read more
-                        </button>
-                      </a>
-                      <Link to="/mentors" className="btn btn-info">
-                        <FiUserPlus /> find your mentor
-                      </Link>
-                    </div>
                     <h2 className="pt-2 pl-2">
-                      <i>1:1 online mentoring</i>
+                      <span>Work with mentor for a hour, day or month.</span>
                     </h2>
+                    <Spring
+                      config={{ delay: 1000 }}
+                      from={{ opacity: 0 }}
+                      to={{ opacity: 1 }}
+                    >
+                      {props => (
+                        <div className="mt-5" style={props}>
+                          <a href="#primo3">
+                            <button className="btn btn-light mr-1 mt-2">
+                              <FiFileText /> read more
+                            </button>
+                          </a>
+                          <Link to="/mentors" className="btn btn-info mt-2">
+                            <FiUserPlus /> find your mentor
+                          </Link>
+                        </div>
+                      )}
+                    </Spring>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="container">
+            <Spring
+              config={{ delay: 2500 }}
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+            >
+              {props1 => (
+                <div style={props1}>
+                  <div className="row d-flex justify-content-center">
+                    <div className="card text-left" id="top3">
+                      <div className="card-body">
+                        <h1 className="card-title">Top 3 mentors:</h1>
+                        <div className="card-text">
+                          <TopMentors />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Spring>
+          </div>
+          <div className="container">
             <div className="row d-flex justify-content-center">
               <div className="card text-left" id="primo2">
                 <div className="card-body">
-                  <h1 className="card-title">1. Why?</h1>
+                  <h1 className="card-title">
+                    1. Why you should have a mentor?
+                  </h1>
                   <div className="lead card-text">
                     <p>
                       Where there is no parent or friend to help you, there is a
@@ -147,7 +168,7 @@ class Home extends Component {
             <div className="row d-flex justify-content-center">
               <div className="card text-left" id="primo2">
                 <div className="card-body">
-                  <h1 className="card-title">2. How?</h1>
+                  <h1 className="card-title">2. How mentor can help you?</h1>
                   <div className="lead card-text">
                     <p>
                       Ok... if you DECIDE to engage mentor, you will have some
@@ -183,7 +204,9 @@ class Home extends Component {
               <div className="row d-flex justify-content-center">
                 <div className="card text-left" id="primo2">
                   <div className="card-body">
-                    <h1 className="card-title">3. What?</h1>
+                    <h1 className="card-title">
+                      3. What you should do to start your personal development?
+                    </h1>
                     <div className="lead card-text">
                       <p>
                         The process is very easy! All you need to do is to pick

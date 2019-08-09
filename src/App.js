@@ -1,11 +1,10 @@
 // Import React
 import React, { Component } from "react";
-import { Router, navigate, Location, Redirect, Link } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import firebase from "./Firebase";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import ScrollToTop from "./ScrollToTop";
 
 import Home from "./dashboard/Home";
-import EmailTo from "./dashboard/EmailTo";
 import EditProfile from "./dashboard/EditProfile";
 import Profile from "./dashboard/Profile";
 import MentorProfile from "./dashboard/MentorProfile";
@@ -14,14 +13,7 @@ import Navigation from "./layout/Navigation";
 import Footer from "./layout/footer";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import Meetings from "./Meetings";
-import CheckIn from "./CheckIn";
-import Attendees from "./Attendees";
-import About from "./About";
-
 import Mentors from "./dashboard/Mentors";
-
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 class App extends Component {
   constructor() {
@@ -116,36 +108,40 @@ class App extends Component {
     if (isLoggedIn) {
       router = (
         <Router primary={false}>
-          <Home path="/" user={this.state.user} />
-          <Login path="/login" />
-          <Register path="/register" registerUser={this.registerUser} />
-          <Profile
-            path="/profile"
-            profileEmail={this.state.email}
-            userID={this.state.userID}
-          />
-          <EditProfile
-            path="/editprofile"
-            profileInfo={this.state.displayName}
-            userID={this.state.userID}
-            profileEmail={this.state.email}
-          />
-          <MentorProfile path="/mentor/:userID" />
-          <EditMentorProfile
-            path="/editmentorprofile"
-            userID={this.state.userID}
-          />
-          <Mentors path="/mentors" />
+          <ScrollToTop path="/">
+            <Home path="/" user={this.state.user} />
+            <Login path="/login" />
+            <Register path="/register" registerUser={this.registerUser} />
+            <Profile
+              path="/profile"
+              profileEmail={this.state.email}
+              userID={this.state.userID}
+            />
+            <EditProfile
+              path="/editprofile"
+              profileInfo={this.state.displayName}
+              userID={this.state.userID}
+              profileEmail={this.state.email}
+            />
+            <MentorProfile path="/mentor/:userID" />
+            <EditMentorProfile
+              path="/editmentorprofile"
+              userID={this.state.userID}
+            />
+            <Mentors path="/mentors" />
+          </ScrollToTop>
         </Router>
       );
     } else {
       router = (
         <Router primary={false}>
-          <Home path="/" user={this.state.user} />
-          <Login path="/login" />
-          <Register path="/register" registerUser={this.registerUser} />
-          <Mentors path="/mentors" />
-          <MentorProfile path="/mentor/:userID" />
+          <ScrollToTop path="/">
+            <Home path="/" user={this.state.user} />
+            <Login path="/login" />
+            <Register path="/register" registerUser={this.registerUser} />
+            <Mentors path="/mentors" />
+            <MentorProfile path="/mentor/:userID" />
+          </ScrollToTop>
         </Router>
       );
     }

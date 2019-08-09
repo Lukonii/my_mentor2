@@ -12,7 +12,7 @@ class footer extends Component {
                 <a
                   id="linkic"
                   className="fb-ic"
-                  href="https://www.w3schools.com"
+                  href="https://www.facebook.com/getonlinementor-101215747895283/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -22,19 +22,8 @@ class footer extends Component {
                 </a>
                 <a
                   id="linkic"
-                  className="tw-ic"
-                  href="https://www.w3schools.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-twitter fa-lg white-text mr-1 fa-2x">
-                    {" "}
-                  </i>
-                </a>
-                <a
-                  id="linkic"
                   className="li-ic"
-                  href="https://www.w3schools.com"
+                  href="https://www.linkedin.com/company/23725859"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -45,7 +34,7 @@ class footer extends Component {
                 <a
                   id="linkic"
                   className="ins-ic"
-                  href="https://www.w3schools.com"
+                  href="https://www.instagram.com/getonlinementor/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -60,7 +49,7 @@ class footer extends Component {
             <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-lx-12">
               <span>
                 <i id="linkic" className="fas fa-envelope mr-1" />
-                Contact:
+                Contact:{" "}
                 <b>
                   <i>luka.vulovic29@gmail.com</i>
                 </b>

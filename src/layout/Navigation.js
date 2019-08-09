@@ -37,7 +37,7 @@ class Navigation extends Component {
               height="45px"
               width="35px"
             />
-            <b>Online Mentor</b>
+            GetOnline<span id="boldit2">Mentor</span>
           </Link>
           <button
             onClick={this.toggleNavbar}

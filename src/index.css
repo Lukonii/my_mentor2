@@ -20,7 +20,7 @@ nav-item {
     #f7b733,
     #ffe3a7
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #f7b733, #ffe3a7);
+  background: linear-gradient(to left, #f7b733, #fff1d3);
 
   position: absolute;
   top: 0;
@@ -44,13 +44,14 @@ nav-item {
   border: none;
 }
 .btn-info {
+  margin-right: 3px;
   background: #f7b733; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to left,
     #f7b733,
     #ffe3a7
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #f7b733, #ffe3a7);
+  background: linear-gradient(to left, #f7b733, #fff1d3);
   border: none;
   color: black;
 }
@@ -94,9 +95,9 @@ nav-item {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 #primo1 {
-  margin-top: 20px;
+  margin-top: 7vh;
   margin-bottom: 40px;
-  width: 80%;
+  width: 90%;
   min-height: 45vh;
   color: white;
   background-color: transparent;
@@ -109,6 +110,9 @@ nav-item {
 #primo1 .card-text {
   font-size: 4vh;
   font-weight: 800;
+}
+#primo1subtitle {
+  color: #f7b733;
 }
 #primo2 {
   margin-top: 10px;
@@ -128,6 +132,21 @@ nav-item {
 }
 #primo2 h1 {
   color: #f7b733;
+}
+#top3 {
+  min-height: 40vh;
+  margin-top: 10px;
+  width: 90%;
+  color: black;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+#top3 h1 {
+  color: #f7b733;
+}
+#boldit2 {
+  font-weight: 600;
 }
 #boldit {
   font-weight: 650;
@@ -183,7 +202,7 @@ nav-item {
   background: linear-gradient(
     to top,
     #095579,
-    #2980b9
+    #0e9bbb
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /*background: #095579;

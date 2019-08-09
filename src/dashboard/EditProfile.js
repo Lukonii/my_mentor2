@@ -148,8 +148,7 @@ class EditProfile extends Component {
         this.setState({
           message: "Your changes has been saved!"
         })
-      ),
-      console.log();
+      );
 
     navigate("/");
   }
