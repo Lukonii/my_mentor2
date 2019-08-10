@@ -40,7 +40,9 @@ class MentorProfile extends Component {
           </div>
           <div className="mt-3 col-12 col-sm-12 col-md-8 col-lg-8 col-lx-8">
             <div className="card bg-light">
-              <div className="card-header">About:</div>
+              <div className="card-header">
+                <h3>Mentor's info:</h3>
+              </div>
               <div className="card-body">
                 <div>
                   <p>About:</p>

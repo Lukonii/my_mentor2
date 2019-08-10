@@ -11,7 +11,7 @@ class Mentors extends Component {
   async componentDidMount() {
     let mentorsList = [];
     let i = 0;
-    const mentorsRef = firebase.database().ref("profiles");
+    const mentorsRef = await firebase.database().ref("profiles");
     mentorsRef.on(
       "value",
       snapshot => (
@@ -42,7 +42,7 @@ class Mentors extends Component {
   }
   render() {
     return (
-      <div className="mr-0">
+      <div className="container">
         <MentorsList
           mentors={this.state.mentors}
           howManyMentors={this.state.howManyMentors}

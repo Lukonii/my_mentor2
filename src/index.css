@@ -14,14 +14,13 @@ nav-item {
   line-height: 110%;
 }
 .navbar {
-  background: #f7b733; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #f7b733,
-    #ffe3a7
+  background: #fc00ff; /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #01eaff 0%,
+    #fc00ff 100%
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #f7b733, #fff1d3);
-
+  background-image: linear-gradient(135deg, #01eaff 0%, #fc00ff 100%);
   position: absolute;
   top: 0;
   width: 100%;
@@ -33,25 +32,25 @@ nav-item {
 .btn {
   border-radius: 25px;
 }
-.btn,
-.card {
+.btn {
   z-index: 1;
   -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 .btn-info :hover {
   border: none;
 }
 .btn-info {
   margin-right: 3px;
-  background: #f7b733; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #f7b733,
-    #ffe3a7
+  margin-left: 3px;
+  background: #fc00ff; /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #01eaff 0%,
+    #fc00ff 100%
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #f7b733, #fff1d3);
+  background-image: linear-gradient(135deg, #01eaff 0%, #fc00ff 100%);
   border: none;
   color: black;
 }
@@ -62,43 +61,28 @@ nav-item {
   border: none;
 }
 .card {
-  background: #ffffff; /* fallback for old browsers */
+  background-color: rgba(255, 255, 255);
 }
 #card {
   max-width: 320px;
-}
-#cardInside {
-  background: #f7b733; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #f7b733,
-    #ffe3a7
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 2px;
+  border-radius: 3px;
+  background: #fc00ff; /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #00dbde 0%,
+    #fc00ff 100%
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #fff1d5, #f8f1e1);
-  border: none;
-  color: black;
+  background-image: linear-gradient(45deg, #00dbde 0%, #fc00ff 100%);
 }
 .card-footer {
   min-height: 49px;
 }
-.header-color {
-  background: #00b4db; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #0083b0,
-    #00b4db
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #0084b086,
-    #00b3db81
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 #primo1 {
   margin-top: 7vh;
-  margin-bottom: 40px;
   width: 90%;
-  min-height: 45vh;
   color: white;
   background-color: transparent;
   box-shadow: none;
@@ -112,7 +96,7 @@ nav-item {
   font-weight: 800;
 }
 #primo1subtitle {
-  color: #f7b733;
+  color: #fc00ff;
 }
 #primo2 {
   margin-top: 10px;
@@ -131,7 +115,7 @@ nav-item {
   border: none;
 }
 #primo2 h1 {
-  color: #f7b733;
+  color: #fc00ff;
 }
 #top3 {
   min-height: 40vh;
@@ -143,7 +127,7 @@ nav-item {
   border: none;
 }
 #top3 h1 {
-  color: #f7b733;
+  color: white;
 }
 #boldit2 {
   font-weight: 600;
@@ -193,16 +177,16 @@ nav-item {
   position: relative;
   padding-top: 100px;
   min-height: 100vh;
-  background: #2980b9; /* fallback for old browsers */
+  background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to bottom,
-    #095579,
-    #2980b9
+    to right,
+    #434343,
+    #000000
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to top,
-    #095579,
-    #0e9bbb
+    45deg,
+    #1f1f1f,
+    #000000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /*background: #095579;
@@ -267,5 +251,5 @@ footer {
   height: 2.5rem; /* Footer height */
 }
 #linkic {
-  color: #095579;
+  color: #00b2de;
 }

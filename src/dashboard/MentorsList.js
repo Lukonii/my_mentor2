@@ -59,7 +59,7 @@ class MentorsList extends Component {
                 <div className="col pb-1">
                   <StarRatings
                     rating={mentor.Stars}
-                    starRatedColor="#00b4db"
+                    starRatedColor="#00b2de"
                     //changeRating={this.changeRating}
                     numberOfStars={5}
                     name="rating"
@@ -88,7 +88,7 @@ class MentorsList extends Component {
       showMentors = <div />;
     }
     return (
-      <div className="mt-2 row d-flex justify-content-center mr-0">
+      <div className="mt-2 row d-flex justify-content-center">
         {showMentors}
       </div>
     );
